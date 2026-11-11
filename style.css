@@ -7,6 +7,7 @@
   --warn: #d29922;
   --danger: #da3633;
   --line: #30363d;
+  --rest: #58a6ff;
 }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { margin: 0; height: 100%; }
@@ -24,10 +25,9 @@ h2 { font-size: 20px; margin: 24px 0 8px; }
 .muted { color: var(--muted); }
 
 .card { background: var(--card); border-radius: 16px; padding: 16px; }
-.row { display: flex; gap: 12px; }
-.field { flex: 1; display: flex; flex-direction: column; gap: 6px; }
-.field > span { color: var(--muted); font-size: 14px; }
-.stepper { display: flex; align-items: stretch; }
+.field { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.field > span { color: var(--muted); font-size: 16px; }
+.stepper { display: flex; align-items: stretch; width: 190px; flex: none; }
 .stepper input {
   width: 100%; min-width: 0; text-align: center; font-size: 26px; font-weight: 600;
   background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-left: 0; border-right: 0;
@@ -42,7 +42,7 @@ h2 { font-size: 20px; margin: 24px 0 8px; }
 
 button { font: inherit; cursor: pointer; border: 0; border-radius: 12px; color: var(--fg); }
 button:active { filter: brightness(1.25); }
-.big { width: 100%; padding: 18px; font-size: 22px; font-weight: 700; margin-top: 16px; }
+.big { width: 100%; padding: 18px; font-size: 22px; font-weight: 700; margin-top: 8px; }
 .primary { background: var(--accent); }
 .secondary { background: var(--line); }
 .danger { background: var(--danger); }
@@ -72,6 +72,17 @@ button:active { filter: brightness(1.25); }
 .controls { display: flex; gap: 12px; margin-top: 40px; }
 #run.ready .phase, #run.ready .clock { color: var(--warn); }
 #run.work .phase { color: var(--accent); }
+#run.rest .phase, #run.rest .clock { color: var(--rest); }
 #run.warning .clock { color: var(--warn); }
 #run.done .phase, #run.done .clock { color: var(--accent); }
 #run.paused .clock { opacity: .4; }
+
+.settings { margin-top: 24px; }
+.settings summary { font-size: 18px; font-weight: 600; cursor: pointer; }
+.toggle, .slider { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.toggle small { display: block; color: var(--muted); font-size: 13px; }
+.toggle input { width: 26px; height: 26px; accent-color: var(--accent); flex: none; }
+.slider input { flex: 1; max-width: 200px; accent-color: var(--accent); }
+.tests { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 12px; align-items: center; }
+.tests > span { color: var(--muted); width: 100%; font-size: 14px; }
+.tests button { background: var(--line); padding: 10px 12px; font-size: 15px; }
