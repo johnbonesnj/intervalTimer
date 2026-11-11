@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Intervals">
+  <meta name="theme-color" content="#111418">
+  <title>Intervals</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="home" class="screen">
+    <h1>Intervals</h1>
+
+    <section class="card">
+      <div class="row">
+        <label class="field">
+          <span>Seconds</span>
+          <div class="stepper">
+            <button type="button" data-step="secs" data-delta="-5">−</button>
+            <input id="secs" type="number" inputmode="numeric" min="1" max="3600" value="30">
+            <button type="button" data-step="secs" data-delta="5">+</button>
+          </div>
+        </label>
+        <label class="field">
+          <span>Sets</span>
+          <div class="stepper">
+            <button type="button" data-step="sets" data-delta="-1">−</button>
+            <input id="sets" type="number" inputmode="numeric" min="1" max="99" value="5">
+            <button type="button" data-step="sets" data-delta="1">+</button>
+          </div>
+        </label>
+      </div>
+      <button id="start" class="primary big">Start</button>
+      <div class="save-row">
+        <input id="fav-name" type="text" placeholder="Name (e.g. Calf raises)" maxlength="40">
+        <button id="save" class="secondary">Save</button>
+      </div>
+    </section>
+
+    <h2>Favorites</h2>
+    <ul id="favs"></ul>
+    <p id="no-favs" class="muted">No favorites yet. Set a time and sets, give it a name, tap Save.</p>
+  </main>
+
+  <main id="run" class="screen" hidden>
+    <div id="run-name" class="run-name"></div>
+    <div id="phase" class="phase"></div>
+    <div id="clock" class="clock">0</div>
+    <div id="setinfo" class="setinfo"></div>
+    <div class="controls">
+      <button id="pause" class="secondary big">Pause</button>
+      <button id="stop" class="danger big">Stop</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
